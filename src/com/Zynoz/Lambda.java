@@ -15,7 +15,7 @@ class Runner {
 }
 
 public class Lambda {
-    public static void main(String[] args) {
+    public static void main() {
         Runner runner = new Runner();
         runner.run(new Executable() {
             @Override
