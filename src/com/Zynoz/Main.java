@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Integer[] array;
+        int[] array;
         array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
         //printList(convertToList(array));
         Diagramm diagramm = new Diagramm();
