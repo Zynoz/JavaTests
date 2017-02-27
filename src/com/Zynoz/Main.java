@@ -1,22 +1,39 @@
 package com.Zynoz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("1");
-        System.out.println("2");
-        System.out.println("3");
-        isNull(0);
+    public static void main(String[] args) throws Exception {
+        int[] array;
+        array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
+        printList(convertToList(array));
     }
 
-    public static boolean isNull(int number) {
-        if (number == 0) {
-            System.out.println("true");
-            Lambda.main();
-            return true;
-        } else {
-            System.out.println("false");
-            return false;
+    public static void printList(List arrayList) {
+        System.out.println("Main.printList");
+        arrayList.forEach(System.out::println);
+    }
+
+    public static List convertToList(int[] array) {
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < array.length; i++) {
+            list.add(array[i]);
         }
+        System.out.println(
+                list.stream()
+                    .filter(e -> e >= 0)
+                    .mapToInt(e -> e *1)
+                    .sum());
+        return list;
+    }
+
+    public static void transform(List list) {
+        System.out.println(
+                list.stream()
+                        .filter(e -> e >= 0)
+                        .mapToInt(e -> e)
+                        .sum());
     }
 }
