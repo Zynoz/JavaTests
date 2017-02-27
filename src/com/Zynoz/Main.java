@@ -6,10 +6,15 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        int[] array;
+        Integer[] array;
         array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
         //printList(convertToList(array));
         Diagramm diagramm = new Diagramm();
+        diagramm.test();
+        diagramm.einfügen(4, 45);
+        diagramm.einfügen(4, 44);
+        diagramm.einfügen(4,43);
+        diagramm.einfügen(4, 42);
         diagramm.test();
     }
 
