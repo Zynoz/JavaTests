@@ -1,5 +1,6 @@
 package com.Zynoz;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -84,5 +85,4 @@ public class ArrayGenerator {
         }
         return array;
     }
-
 }

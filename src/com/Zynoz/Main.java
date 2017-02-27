@@ -8,7 +8,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         int[] array;
         array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
-        printList(convertToList(array));
+        //printList(convertToList(array));
+        Diagramm diagramm = new Diagramm();
+        diagramm.test();
     }
 
     public static void printList(List arrayList) {
