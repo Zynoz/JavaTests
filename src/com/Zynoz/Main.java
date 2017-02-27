@@ -23,17 +23,9 @@ public class Main {
         }
         System.out.println(
                 list.stream()
-                    .filter(e -> e >= 0)
-                    .mapToInt(e -> e *1)
+                    .filter(e -> e > 5)
+                    .mapToInt(e -> e * 5)
                     .sum());
         return list;
-    }
-
-    public static void transform(List list) {
-        System.out.println(
-                list.stream()
-                        .filter(e -> e >= 0)
-                        .mapToInt(e -> e)
-                        .sum());
     }
 }
