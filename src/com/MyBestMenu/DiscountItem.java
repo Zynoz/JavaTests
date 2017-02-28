@@ -6,23 +6,68 @@ import java.net.URL;
 /**
  * Created by Zynoz on 27.02.2017.
  */
+
 public class DiscountItem {
     private String productName;
     private String productBrand;
     private String itemDescription;
-    private int discountInPercent;
-    private double originalPrice;
+    private String location;
     private String itemImage;
     private String brandImage;
+    private int discountInPercent;
+    private int radius;
+    private int howManyPeople;
+    private double originalPrice;
+    private double reducedPrice;
 
-    public DiscountItem(String productName, String productBrand, String itemDescription, int discountInPercent, double originalPrice, String itemImage, String brandImage) {
+    public DiscountItem(String productName, String productBrand, String itemDescription, String location, String itemImage, String brandImage, int discountInPercent, int radius, int howManyPeople, double originalPrice, double reducedPrice) {
+        setProductName(productName);
+        setProductBrand(productBrand);
+        setItemDescription(itemDescription);
+        setLocation(location);
+        setItemImage(itemImage);
+        setBrandImage(brandImage);
+        setDiscountInPercent(discountInPercent);
+        setRadius(radius);
+        setHowManyPeople(howManyPeople);
+        setOriginalPrice(originalPrice);
+        setReducedPrice(reducedPrice);
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getProductBrand() {
+        return productBrand;
+    }
+
+    public void setProductBrand(String productBrand) {
         this.productBrand = productBrand;
-        this.itemDescription = itemDescription;
-        this.discountInPercent = discountInPercent;
-        this.originalPrice = originalPrice;
-        this.itemImage = itemImage;
-        this.brandImage = brandImage;
+    }
+
+    public String getItemDescription() {
+        return itemDescription;
+    }
+
+    public void setItemDescription(String itemDescription) {
+        if (itemDescription.length() >= 100) {
+            System.err.println("Beschreibung zu lange");
+        } else {
+            this.itemDescription = itemDescription;
+        }
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getItemImage() {
@@ -69,31 +114,6 @@ public class DiscountItem {
         catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getProductBrand() {
-        return productBrand;
-    }
-
-    public void setProductBrand(String productBrand) {
-        this.productBrand = productBrand;
-    }
-
-    public String getItemDescription() {
-        return itemDescription;
-    }
-
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
     }
 
     public int getDiscountInPercent() {
@@ -101,7 +121,35 @@ public class DiscountItem {
     }
 
     public void setDiscountInPercent(int discountInPercent) {
-        this.discountInPercent = discountInPercent;
+        if (discountInPercent > 0 && discountInPercent <= 100) {
+            this.discountInPercent = discountInPercent;
+        } else {
+            System.err.println("value not valid");
+        }
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        if (radius > 0 && radius <= 1500) {
+            this.radius = radius;
+        } else {
+            System.err.println("value not valid");
+        }
+    }
+
+    public int getHowManyPeople() {
+        return howManyPeople;
+    }
+
+    public void setHowManyPeople(int howManyPeople) {
+        if (howManyPeople > 0) {
+            this.howManyPeople = howManyPeople;
+        } else {
+            System.err.println("value not valid");
+        }
     }
 
     public double getOriginalPrice() {
@@ -112,10 +160,28 @@ public class DiscountItem {
         this.originalPrice = originalPrice;
     }
 
-    public double calculateNewPrice() {
-        double price = getOriginalPrice();
-        return getOriginalPrice() - (price / 100) * getDiscountInPercent();
+    public double getReducedPrice() {
+        return reducedPrice;
     }
 
+    public void setReducedPrice(double reducedPrice) {
+        this.reducedPrice = reducedPrice;
+    }
 
+    @Override
+    public String toString() {
+        return "DiscountItem{" +
+                "productName='" + productName + '\'' +
+                ", productBrand='" + productBrand + '\'' +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", location='" + location + '\'' +
+                ", itemImage='" + itemImage + '\'' +
+                ", brandImage='" + brandImage + '\'' +
+                ", discountInPercent=" + discountInPercent +
+                ", radius=" + radius +
+                ", howManyPeople=" + howManyPeople +
+                ", originalPrice=" + originalPrice +
+                ", reducedPrice=" + reducedPrice +
+                '}';
+    }
 }
