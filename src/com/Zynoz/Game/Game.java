@@ -10,14 +10,13 @@ import java.awt.*;
 public class Game extends JPanel {
     int x = 300;
     int y = 400;
-    private void moveBall() {
-        x = x + 1;
-        y = y + 1;
+    int acceleration = 1;
+    int directionX;
+    int directionY;
 
-        if (x == getWidth() || y == getHeight()) {
-            x = 300;
-            y = 400;
-        }
+    private void moveBall() {
+
+
     }
     @Override
     public void paint(Graphics g) {
