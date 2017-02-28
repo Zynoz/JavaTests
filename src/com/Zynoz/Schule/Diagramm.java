@@ -12,7 +12,7 @@ public class Diagramm {
     private ArrayList tempList;
     public Diagramm() throws Exception {
         //temp = ArrayGenerator.oneArrayGenerator(anzahl, 0, 30, 1);
-         tempList = new ArrayList<>(Arrays.asList(temp));
+        tempList = new ArrayList<>(Arrays.asList(temp));
 
         temp[0] = 0;
         temp[1] = 1;
@@ -32,7 +32,7 @@ public class Diagramm {
 
                 if (temp[i] < 0) {
                     System.err.println("Wert " + temp[i] + " ist negativ an Stelle " + i);
-                    System.exit(0);
+                    //System.exit(0);
                 }
                 System.out.print("Position:" + i + "[" + temp[i] + "]");
                 for (int j = 0; j < temp[i]; j++) {

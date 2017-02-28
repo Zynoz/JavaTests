@@ -11,8 +11,6 @@ public class Main {
         int[] array;
         array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
         //printList(convertToList(array));
-        Diagramm diagramm = new Diagramm();
-        diagramm.list(5, 45);
     }
 
     public static void printList(List arrayList) {

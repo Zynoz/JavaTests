@@ -8,14 +8,25 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 public class Game extends JPanel {
-    int x = 300;
-    int y = 400;
-    int acceleration = 1;
-    int directionX;
-    int directionY;
+    private int x = 0;
+    private int y = 0;
+    private int directionX = 1;
+    private int directionY = 1;
 
     private void moveBall() {
+        x = x + directionX;
+        y = y + directionY;
 
+        if (x == getWidth() - 15) {
+            directionX = -1;
+        } else if (x == 0) {
+            directionX = 1;
+        }
+        if (y == getHeight() - 15) {
+            directionY = -1;
+        } else if (y == 0) {
+            directionY = 1;
+        }
 
     }
     @Override
@@ -24,14 +35,14 @@ public class Game extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.fillOval(x, y, 15, 15);
+        g2d.fillRect(x, y, 15, 15);
     }
 
     public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("2D Game");
         Game game = new Game();
         frame.add(game);
-        frame.setSize(600, 800);
+        frame.setSize(600, 600);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
