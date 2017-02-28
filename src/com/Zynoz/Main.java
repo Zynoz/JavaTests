@@ -1,5 +1,6 @@
 package com.Zynoz;
 
+import com.MyBestMenu.DiscountItem;
 import com.Zynoz.Schule.Diagramm;
 
 import java.util.ArrayList;
@@ -8,9 +9,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        int[] array;
-        array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
-        //printList(convertToList(array));
+        Diagramm diagramm = new Diagramm();
+        diagramm.einfuegenTest(5, 20);
     }
 
     public static void printList(List arrayList) {

@@ -114,8 +114,7 @@ public class DiscountItem {
 
     public double calculateNewPrice() {
         double price = getOriginalPrice();
-        price = (price / 100) * getDiscountInPercent();
-        return price;
+        return getOriginalPrice() - (price / 100) * getDiscountInPercent();
     }
 
 

@@ -5,6 +5,7 @@ package com.Zynoz.Game;
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class Game extends JPanel {
@@ -27,6 +28,21 @@ public class Game extends JPanel {
         } else if (y == 0) {
             directionY = 1;
         }
+    }
+
+    public void moveLeft() {
+
+    }
+
+    public void moveRight() {
+
+    }
+
+    public void moveDown() {
+
+    }
+
+    public void moveUp() {
 
     }
     @Override

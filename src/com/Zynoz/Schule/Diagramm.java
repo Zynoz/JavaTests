@@ -2,6 +2,8 @@ package com.Zynoz.Schule;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.List;
 
 /**
  * Created by Titan on 27.02.2017.
@@ -9,20 +11,36 @@ import java.util.Arrays;
 public class Diagramm {
     private int anzahl = 7;
     private int[] temp = new int[10];
-    private ArrayList tempList;
+    private List<Integer> tempList;
+
     public Diagramm() throws Exception {
         //temp = ArrayGenerator.oneArrayGenerator(anzahl, 0, 30, 1);
-        tempList = new ArrayList<>(Arrays.asList(temp));
+        tempList = new ArrayList<Integer>();
 
-        temp[0] = 0;
-        temp[1] = 1;
-        temp[2] = 2;
-        temp[3] = 3;
-        temp[4] = 4;
-        temp[5] = 5;
-        temp[6] = 6;
+        tempList.add(0, 12);
+        tempList.add(1, 8);
+        tempList.add(2, 15);
+        tempList.add(3, 13);
+        tempList.add(4, 17);
+        tempList.add(5, 19);
+        tempList.add(6, 22);
+        tempList.add(7, 24);
+        tempList.add(8, 26);
+        tempList.add(9, 28);
 
-        anzahl = 7;
+        temp[0] = 12;
+        temp[1] = 8;
+        temp[2] = 15;
+        temp[3] = 13;
+        temp[4] = 17;
+        temp[5] = 19;
+        temp[6] = 22;
+        temp[7] = 24;
+        temp[8] = 26;
+        temp[9] = 28;
+
+
+        anzahl = 10;
 
     }
 
@@ -43,11 +61,10 @@ public class Diagramm {
         System.out.println("==========================================");
     }
 
-    public void einfügen(int pos, int wert) {
-
+    public void einfuegen(int pos, int wert) {
         System.out.println("Diagramm.einfügen");
         int i = anzahl - 1;
-        if (pos >= 0 && pos < anzahl - 1 && wert <= 45 && wert >= -30) {
+        if (pos >= 0 && pos < anzahl - 1 && wert <= 50 && wert >= -50) {
             if (anzahl < temp.length) {
                 while (i >= pos) {
                     temp[i + 1] = temp[i];
@@ -64,25 +81,13 @@ public class Diagramm {
         }
     }
 
-    public void einfügenTest(int pos, int wert) {
-        System.out.println("Diagramm.einfügenTest");
-        if (pos < 0 || pos >= anzahl || wert <= -30 || wert >= 45) {
-            System.out.println("ein Wert ist nicht gültig");
+    public void einfuegenTest(int pos, int wert) {
+        System.out.println("Diagramm.einfuegenTest");
+        if (wert >= -50 && wert <= 50) {    //prüft ob wert ok ist
+            tempList.add(pos, wert);    //fügt wert an position in ListArray ein
+            tempList.forEach(System.out::println);  //gibt array aus
         } else {
-            int[] result = new int[temp.length];
-            for (int i = 0; i < pos; i++) {
-                result[i] = temp[i];
-                result[pos] = wert;
-                anzahl++;
-                for (int j = 0; j < pos + 1; j++) {
-                    result[i] = temp[i - 1];
-                }
-            }
+            System.err.println("Übergebener Wert ist ungültig   ");
         }
-    }
-
-    public void list(int pos, int wert) {
-        tempList.add(pos, wert);
-        tempList.stream();
     }
 }
