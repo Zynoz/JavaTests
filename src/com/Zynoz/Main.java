@@ -1,5 +1,7 @@
 package com.Zynoz;
 
+import com.Zynoz.Schule.Diagramm;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,12 +12,7 @@ public class Main {
         array = ArrayGenerator.oneArrayGenerator(10, 0, 10, 1);
         //printList(convertToList(array));
         Diagramm diagramm = new Diagramm();
-        diagramm.test();
-        diagramm.einfügen(4, 45);
-        diagramm.einfügen(4, 44);
-        diagramm.einfügen(4,43);
-        diagramm.einfügen(4, 42);
-        diagramm.test();
+        diagramm.list(5, 45);
     }
 
     public static void printList(List arrayList) {
