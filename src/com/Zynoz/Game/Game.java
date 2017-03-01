@@ -1,71 +1,60 @@
 package com.Zynoz.Game;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Created by Zynoz on 28.02.2017.
  */
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
-@SuppressWarnings("serial")
-public class Game extends JPanel {
-    private int x = 0;
-    private int y = 0;
-    private int directionX = 1;
-    private int directionY = 1;
-
-    private void moveBall() {
-        x = x + directionX;
-        y = y + directionY;
-
-        if (x == getWidth() - 15) {
-            directionX = -1;
-        } else if (x == 0) {
-            directionX = 1;
-        }
-        if (y == getHeight() - 15) {
-            directionY = -1;
-        } else if (y == 0) {
-            directionY = 1;
-        }
-    }
-
-    public void moveLeft() {
-
-    }
-
-    public void moveRight() {
-
-    }
-
-    public void moveDown() {
-
-    }
-
-    public void moveUp() {
-
-    }
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.fillRect(x, y, 15, 15);
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        JFrame frame = new JFrame("2D Game");
+public class Game extends JFrame {
+    public static void main(String[] args) {
+        DisplayMode displayMode = new DisplayMode(800, 600, 16, DisplayMode.REFRESH_RATE_UNKNOWN);
         Game game = new Game();
-        frame.add(game);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        game.run(displayMode);
+    }
 
-        while (true) {
-            game.moveBall();
-            game.repaint();
-            Thread.sleep(10);
+    private Screen screen;
+    private Image bg;
+    private Image pic;
+    private boolean loaded;
+
+
+
+    private void run(DisplayMode displayMode) {
+
+        setFont(new Font("Arial", Font.PLAIN, 24));
+
+        screen = new Screen();
+        try {
+            screen.setFullScreen(displayMode, this);
+            loadPics();
+            try {
+                Thread.sleep(5000);
+            } catch (Exception ex) {
+                //ex.printStackTrace();
+            }
+        } finally {
+            screen.restoreScreen();
+        }
+    }
+
+    private void loadPics() {
+        bg = new ImageIcon("F:\\Java-Projects\\MyBestMenu\\Graphics\\bg.jpg").getImage();
+        pic = new ImageIcon("E:\\Grafiken\\steam_pb.png").getImage();
+        loaded = true;
+        repaint();
+
+    }
+
+    public void paint(Graphics g) {
+        if (g instanceof Graphics2D) {
+            Graphics2D graphics2D = (Graphics2D) g;
+            graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            graphics2D.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        }
+        if (loaded) {
+            g.drawImage(bg, 0, 0, null);
+            g.drawImage(pic, 400, 150, null);
         }
     }
 }

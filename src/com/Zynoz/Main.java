@@ -1,16 +1,12 @@
 package com.Zynoz;
 
-import com.MyBestMenu.DiscountItem;
-import com.Zynoz.Schule.Diagramm;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Diagramm diagramm = new Diagramm();
-        diagramm.einfuegenTest(5, 20);
+
     }
 
     public static void printList(List arrayList) {
