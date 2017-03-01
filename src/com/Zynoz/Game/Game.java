@@ -39,7 +39,7 @@ public class Game extends JFrame {
     }
 
     private void loadPics() {
-        bg = new ImageIcon("F:\\Java-Projects\\MyBestMenu\\Graphics\\bg.jpg").getImage();
+        bg = new ImageIcon("F:\\Java-Projects\\JavaTests\\Graphics\\bg.jpg").getImage();
         pic = new ImageIcon("E:\\Grafiken\\steam_pb.png").getImage();
         loaded = true;
         repaint();
