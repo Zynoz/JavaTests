@@ -21,7 +21,7 @@ public class Animation {
 
     private synchronized void start(Image image, long t) {
         totalTime += t;
-        scenes.add(new oneScene(i, totalTime));
+        scenes.add(new oneScene(image, totalTime));
 
     }
 }
